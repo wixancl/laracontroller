@@ -12,4 +12,4 @@ git add .
 echo "git commit -m $date_stamp"
 git commit -m "$date_stamp"
 echo "git push -u origin master"
-git push -u origin master
+git push -u origin main
