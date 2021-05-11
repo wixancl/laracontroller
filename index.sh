@@ -82,16 +82,11 @@ else
 	 then
 	 	 echo -e "\e[92m no se ha ejecutado ninguan accion  \e[0m"
 	 else
-	 	 echo -e "\e[92m no se ha ejecutado ninguan accion  \e[0m"
+	 	 echo -e "\e[92m no se ha ejecutado ninguan accion..  \e[0m"
          fi
     fi
 fi
 
-}
-
-borraraplicacion()
-{
-rm -rf $app
 }
 
 
@@ -116,6 +111,7 @@ do
     esac 
 done
 }
+
 
 clear
 presentacion
