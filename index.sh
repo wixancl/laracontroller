@@ -7,10 +7,14 @@
 ################################################################################################################################################################
 #Definicion de variables                                                                                                                                       #
 ################################################################################################################################################################
-NOMBRE_1="Informe"
+
 FECHA_Y_HORA=`date "+%d-%m-%y_%H-%M-%S"`
-CADENA_1=$NOMBRE_1$FECHA_Y_HORA
+
 ################################################################################################################################################################
+
+
+
+
 
 
 
@@ -62,7 +66,12 @@ then
      echo -e "\e[92m Se creara la aplicacion \e[0m"
      composer create-project laravel/laravel $app
      echo -e "\e[92m La aplicacion ha sido creada \e[0m"
+	 echo -e "\e[92m Creando entorno de seguridad \e[0m"
+	 mkdir -p $app/wixan/log
+	 
+	 
      read -rsp $'Presione cualquier tecla o espere 5 segundos para continuar  \n' -n 1 -t 5;
+     menu
 else
      if [ "$(ls $app)" ]
      then
@@ -94,8 +103,10 @@ else
 	 elif [ $opcionborraraplicacion = "N" ]           
 	 then
 	 	 echo -e "\e[92m no se ha ejecutado ninguan accion  \e[0m"
+		 menu
 	 else
 	 	 echo -e "\e[92m no se ha ejecutado ninguan accion..  \e[0m"
+		 menu
          fi
     fi
 fi
@@ -138,6 +149,7 @@ echo  $db
 mysql -h $server -u $dbuser -p$dbuserpass -e "CREATE DATABASE $db;"
 mysql -h $server -u $dbuser -p$dbuserpass -e "SHOW DATABASES;"
 echo -e "\e[92m  \e[0m"
+menu
 }
 ################################################################################################################################################################
 
@@ -147,6 +159,44 @@ echo -e "\e[92m  \e[0m"
 generacioninforme()
 {
 sudo dpkg --get-selections >> Informe_$FECHA_Y_HORA.txt
+
+grep -i apache Informe*.txt
+grep -i php Informe*.txt
+grep -i maria Informe*.txt
+grep -i mysql Informe*.txt
+echo -e "\e[96m El informe a sido generado \e[0m"
+
+
+menu
+}
+################################################################################################################################################################
+
+
+################################################################################################################################################################
+#Crear Controller                                                                                                                                              #
+################################################################################################################################################################
+crearcontroller()
+{
+clear
+echo -e "\e[92m ################################################# \e[0m"
+echo -e "\e[93m # Crear Controller                              # \e[0m" 
+echo -e "\e[93m #                                               # \e[0m" 
+echo -e "\e[92m ################################################# \e[0m" 
+
+echo -e "\e[92m  \e[0m"
+echo -e "\e[96m Escriba el Nombre del Controlador \e[0m"
+echo -n " >> "
+read nombre
+
+echo -e "\e[92m  \e[0m"
+echo -e "\e[96m Escriba el Nombre del namespace \e[0m"
+echo -n " >> "
+read namespace
+
+
+
+
+
 }
 
 ################################################################################################################################################################
@@ -164,23 +214,23 @@ echo -e "\e[93m #                                               # \e[0m"
 echo -e "\e[92m ################################################# \e[0m" 
 
 PS3="Selecciona una operación: " 
-select opt in instalar instalardb generacioninforme reiniciar salir; 
+select opt in instalar instalardb generacioninforme salir; 
 do 
     case $opt in 
-        instalar) 
+    instalar) 
 		instalarapp
 		;;
-    	
-	reiniciar)
-		index.sh
-		;;
-        
+
 	instalardb)
 		instalardb
 		;;
 		
 	generacioninforme)
 		generacioninforme
+		;;
+	
+	crearcontroller)
+		crearcontroller
 		;;
 		
 	salir) 
