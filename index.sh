@@ -54,8 +54,9 @@ then
      echo -e "\e[92m La aplicacion ha sido creada \e[0m"
 	 echo -e "\e[92m Creando entorno de seguridad \e[0m"
 	 mkdir -p $app/wixan/log
-	 
-	 
+     cd $app
+     composer install
+     cd ..	 
      read -rsp $'Presione cualquier tecla o espere 5 segundos para continuar  \n' -n 1 -t 5;
      menu
 else
@@ -257,26 +258,6 @@ echo -e "\e[32m ""Sufijo s"" \e[94m variable \e[91m >> \e[93m \$s  \e[97m= \e[96
 #echo -e "\e[94m Ejecutado \e[92m OK \e[0m"
 #echo -e "\e[92m  \e[0m"
 #echo -e "\e[92m  \e[0m
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 menu
