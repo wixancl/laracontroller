@@ -58,7 +58,9 @@ then
      composer install
      cd ..	 
      read -rsp $'Presione cualquier tecla o espere 5 segundos para continuar  \n' -n 1 -t 5;
-     menu
+     echo -e "\e[92m Para completar la instalacion es mecesario Instalar la Base de datos  \e[0m"
+     instalardb
+     echo -e "\e[92m Se creara la aplicacion \e[0m"
 else
      if [ "$(ls $app)" ]
      then
