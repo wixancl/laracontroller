@@ -38,6 +38,7 @@ variables()
 	echo -n " >> "
 	read  app
 	echo  $app
+	export $app
 	echo -e "\e[92m  \e[0m"
 }
 ################################################################################################################################################################
@@ -308,7 +309,7 @@ select opt in variables instalar instalardb generacioninforme createcontroller s
 do 
     case $opt in 
 	variables)
-		variables
+		variables 
 		;;
 		
     instalar) 
