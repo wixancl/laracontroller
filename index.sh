@@ -125,7 +125,7 @@ echo  $dbuser
 echo -e "\e[92m  \e[0m"
 
 
-echo -e "\e[96m Escriba la cotrasena del usaurio de la base de datos \e[0m"
+echo -e "\e[96m Escriba la contrasena del usaurio de la base de datos \e[0m"
 echo -n " >> "
 read dbuserpass
 echo  $dbuserpass
