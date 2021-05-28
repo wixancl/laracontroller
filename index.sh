@@ -32,7 +32,7 @@ echo -e "\e[92m  \e[0m"
 ################################################################################################################################################################
 #Decalracion de variables                                                                                                                                      #
 ################################################################################################################################################################
-declaraciondevariables()
+variables()
 {
 	echo -e "\e[96m Escriba el Nombre de la aplicacion \e[0m" 
 	echo -n " >> "
@@ -304,11 +304,11 @@ echo -e "\e[93m #                                               # \e[0m"
 echo -e "\e[92m ################################################# \e[0m" 
 
 PS3="Selecciona una operación: " 
-select opt in declaraciondevariables instalar instalardb generacioninforme createcontroller salir; 
+select opt in variables instalar instalardb generacioninforme createcontroller salir; 
 do 
     case $opt in 
-	declaraciondevariables)
-		declaraciondevariables)
+	variables)
+		variables
 		;;
 		
     instalar) 
