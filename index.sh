@@ -37,9 +37,9 @@ variables()
 {
 	echo -e "\e[96m Escriba el Nombre de la aplicacion \e[0m" 
 	echo -n " >> "
-	read  app
-	echo  $app
-	export $app
+	read  APP
+	echo  $APP
+	export $APP
 	echo -e "\e[92m  \e[0m"
 }
 ################################################################################################################################################################
@@ -61,15 +61,15 @@ echo -e "\e[92m ################################################# \e[0m"
 #echo  $app
 #echo -e "\e[92m  \e[0m"
 
-if [ ! -d $app ]
+if [ ! -d $APP ]
 then
      echo -e "\e[92m El directorio no existe \e[0m"
      echo -e "\e[92m Se creara la aplicacion \e[0m"
-     composer create-project laravel/laravel $app
+     composer create-project laravel/laravel $APP
      echo -e "\e[92m La aplicacion ha sido creada \e[0m"
 	 echo -e "\e[92m Creando entorno de seguridad \e[0m"
-	 mkdir -p $app/wixan/log
-     cd $app
+	 mkdir -p $APP/wixan/log
+     cd $APP
      composer install
      cd ..	 
      read -rsp $'Presione cualquier tecla o espere 5 segundos para continuar  \n' -n 1 -t 5;
@@ -77,7 +77,7 @@ then
      instalardb
      echo -e "\e[92m Se creara la aplicacion \e[0m"
 else
-     if [ "$(ls $app)" ]
+     if [ "$(ls $APP)" ]
      then
 
          echo -e "\e[92m El directorio no esta vacio \e[0m"
@@ -86,7 +86,7 @@ else
 	 read opcionborraraplicacion
 	 if [ $opcionborraraplicacion = "Y" ]
          then
-		 rm -rf $app
+		 rm -rf $APP
 	 elif [ $opcionborraraplicacion = "N" ]           
 	 then
 	 	 echo -e "\e[92m no se ha ejecutado ninguan accion  \e[0m"
@@ -103,7 +103,7 @@ else
 
 	 if [ $opcionborraraplicacion = "Y" ]
          then
-		 rm -rf $app
+		 rm -rf $APP
 	 elif [ $opcionborraraplicacion = "N" ]           
 	 then
 	 	 echo -e "\e[92m no se ha ejecutado ninguan accion  \e[0m"
