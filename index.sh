@@ -41,6 +41,36 @@ variables()
 	echo  $APP
 	export $APP
 	echo -e "\e[92m  \e[0m"
+	
+	echo -e "\e[96m Escriba el Nombre o IP del servidor \e[0m"
+	echo -n " >> "
+	read  SERVER
+	echo  $SERVER
+	export $SERVER
+	echo -e "\e[92m  \e[0m"
+
+	echo -e "\e[96m Escriba el usuario de la base de datos \e[0m"
+	echo -n " >> "
+	read DB_USER
+	echo  $DB_USER
+	export $DB_USER
+	echo -e "\e[92m  \e[0m"
+
+
+	echo -e "\e[96m Escriba la contrasena del usaurio de la base de datos \e[0m"
+	echo -n " >> "
+	read DB_USERPASS
+	echo  $DB_USERPASS
+	export $DB_USERPASS
+	echo -e "\e[92m  \e[0m"
+
+	echo -e "\e[96m Escriba el nombre de la base de datos que desea crear \e[0m"
+	echo -n " >> "
+	read DB_NAME
+	echo  $DB_NAME
+	export $DB_NAME
+	echo -e "\e[92m  \e[0m"
+		
 }
 ################################################################################################################################################################
 
@@ -128,31 +158,8 @@ echo -e "\e[93m # Instalacion de DB                             # \e[0m"
 echo -e "\e[93m #                                               # \e[0m" 
 echo -e "\e[92m ################################################# \e[0m" 
 
-echo -e "\e[96m Escriba el Nombre o IP del servidor \e[0m"
-echo -n " >> "
-read  server
-echo  $server
-echo -e "\e[92m  \e[0m"
-
-echo -e "\e[96m Escriba el usuario de la base de datos \e[0m"
-echo -n " >> "
-read dbuser
-echo  $dbuser
-echo -e "\e[92m  \e[0m"
-
-
-echo -e "\e[96m Escriba la contrasena del usaurio de la base de datos \e[0m"
-echo -n " >> "
-read dbuserpass
-echo  $dbuserpass
-echo -e "\e[92m  \e[0m"
-
-echo -e "\e[96m Escriba el nombre de la base de datos que desea crear \e[0m"
-echo -n " >> "
-read db
-echo  $db
-mysql -h $server -u $dbuser -p$dbuserpass -e "CREATE DATABASE $db;"
-mysql -h $server -u $dbuser -p$dbuserpass -e "SHOW DATABASES;"
+mysql -h $SERVER -u $DB_USER -p$DB_USERPASS -e "CREATE DATABASE $DB_NAME;"
+mysql -h $SERVER -u $DB_USER -p$DB_USERPASS -e "SHOW DATABASES;"
 echo -e "\e[92m  \e[0m"
 menu
 }
